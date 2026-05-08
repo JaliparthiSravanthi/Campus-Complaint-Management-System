@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Complaint Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span>CampusGuard</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#auth-choice">Portal</a>
+                <a href="#student-dashboard">Student Dashboard</a>
+                <a href="#admin-dashboard">Admin Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <!-- HOME -->
+        <section id="home" class="view active">
+            <div class="hero pastel-hero">
+                <div class="hero-left">
+                    <span class="hero-badge">Smart Campus Governance</span>
+                    <h1>Campus Complaint Management System</h1>
+                    <p>
+                        A transparent and student-friendly complaint platform with automated NLP triage,
+                        blockchain-based audit logs, escalation tracking, and campus issue heat maps.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#auth-choice" class="btn primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTH CHOICE -->
+        <section id="auth-choice" class="view">
+            <div class="view-header center">
+                <h1>Choose Your Portal</h1>
+                <p>Select whether you want to continue as a student or as an administrator.</p>
+            </div>
+
+            <div class="choice-grid">
+                <div class="choice-card student-card">
+                    <div class="choice-icon">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p>Submit complaints, track status, and view campus issue updates.</p>
+                    <div class="choice-actions">
+                        <button class="btn primary" data-target="student-login">Student Login</button>
+                        <button class="btn soft" data-target="student-register">Student Register</button>
+                    </div>
+                </div>
+
+                <div class="choice-card admin-card">
+                    <div class="choice-icon">🧑‍💼</div>
+                    <h3>Admin Portal</h3>
+                    <p>Review complaints, monitor SLA breaches, and manage escalations.</p>
+                    <div class="choice-actions">
+                        <button class="btn primary" data-target="admin-login">Admin Login</button>
+                        <button class="btn soft" data-target="admin-register">Admin Register</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT LOGIN -->
+        <section id="student-login" class="view">
+            <div class="auth-shell">
+                <div class="auth-side student-bg">
+                    <h2>Student Login</h2>
+                    <p>Access your complaint dashboard, track updates, and raise issues securely.</p>
+                    <button class="mini-link-btn" data-target="student-register">New user? Register here</button>
+                </div>
+
+                <form class="auth-form pastel-card" id="studentLoginForm">
+                    <h3>Welcome Back</h3>
+
+                    <label>
+                        Student ID
+                        <input type="text" id="studentLoginId" placeholder="Enter student ID" required>
+                    </label>
+
+                    <label>
+                        Email Address
+                        <input type="email" id="studentLoginEmail" placeholder="Enter email" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input type="password" id="studentLoginPassword" placeholder="Enter password" required>
+                    </label>
+
+                    <button type="submit" class="btn primary full">Login as Student</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STUDENT REGISTER -->
+        <section id="student-register" class="view">
+            <div class="auth-shell">
+                <div class="auth-side student-bg">
+                    <h2>Student Register</h2>
+                    <p>Create your account to submit complaints and monitor their resolution.</p>
+                    <button class="mini-link-btn" data-target="student-login">Already have an account? Login</button>
+                </div>
+
+                <form class="auth-form pastel-card" id="studentRegisterForm">
+                    <h3>Create Student Account</h3>
+
+                    <label>
+                        Full Name
+                        <input type="text" id="studentRegisterName" placeholder="Enter full name" required>
+                    </label>
+
+                    <label>
+                        Student ID
+                        <input type="text" id="studentRegisterId" placeholder="Enter student ID" required>
+                    </label>
+
+                    <label>
+                        Email Address
+                        <input type="email" id="studentRegisterEmail" placeholder="Enter email" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input type="password" id="studentRegisterPassword" placeholder="Create password" required>
+                    </label>
+
+                    <button type="submit" class="btn primary full">Register as Student</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ADMIN LOGIN -->
+        <section id="admin-login" class="view">
+            <div class="auth-shell">
+                <div class="auth-side admin-bg">
+                    <h2>Admin Login</h2>
+                    <p>Review complaints, verify blockchain logs, and manage escalations.</p>
+                    <button class="mini-link-btn" data-target="admin-register">New admin? Register here</button>
+                </div>
+
+                <form class="auth-form pastel-card" id="adminLoginForm">
+                    <h3>Admin Access</h3>
+
+                    <label>
+                        Admin ID
+                        <input type="text" id="adminLoginId" placeholder="Enter admin ID" required>
+                    </label>
+
+                    <label>
+                        Official Email
+                        <input type="email" id="adminLoginEmail" placeholder="Enter official email" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input type="password" id="adminLoginPassword" placeholder="Enter password" required>
+                    </label>
+
+                    <button type="submit" class="btn primary full">Login as Admin</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ADMIN REGISTER -->
+        <section id="admin-register" class="view">
+            <div class="auth-shell">
+                <div class="auth-side admin-bg">
+                    <h2>Admin Register</h2>
+                    <p>Create an admin account to manage complaint workflows and escalation handling.</p>
+                    <button class="mini-link-btn" data-target="admin-login">Already registered? Login</button>
+                </div>
+
+                <form class="auth-form pastel-card" id="adminRegisterForm">
+                    <h3>Create Admin Account</h3>
+
+                    <label>
+                        Full Name
+                        <input type="text" id="adminRegisterName" placeholder="Enter full name" required>
+                    </label>
+
+                    <label>
+                        Admin ID
+                        <input type="text" id="adminRegisterId" placeholder="Enter admin ID" required>
+                    </label>
+
+                    <label>
+                        Official Email
+                        <input type="email" id="adminRegisterEmail" placeholder="Enter official email" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input type="password" id="adminRegisterPassword" placeholder="Create password" required>
+                    </label>
+
+                    <button type="submit" class="btn primary full">Register as Admin</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STUDENT DASHBOARD -->
+        <section id="student-dashboard" class="view">
+            <div class="view-header">
+                <h1>Student Dashboard</h1>
+                <p>Submit complaints, check status, and follow recent grievance activity.</p>
+            </div>
+
+           <div class="student-overview pastel-card">
+    <div class="overview-header">
+        <h3>Complaint Overview</h3>
+        <p>Your submitted complaints and current status</p>
+    </div>
+
+    <div class="overview-grid">
+        <div class="overview-chart-card">
+            <div class="circle-chart">
+                <div class="circle-inner">
+                    <span id="studentTotalText">0</span>
+                    <small>Total</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="overview-bars">
+            <div class="overview-row">
+                <div class="overview-label-wrap">
+                    <span class="overview-label">Resolved</span>
+                    <span class="overview-value" id="studentResolvedText">0</span>
+                </div>
+                <div class="overview-bar-track">
+                    <div class="overview-bar resolved-bar" id="studentResolvedBar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="overview-row">
+                <div class="overview-label-wrap">
+                    <span class="overview-label">Pending</span>
+                    <span class="overview-value" id="studentPendingText">0</span>
+                </div>
+                <div class="overview-bar-track">
+                    <div class="overview-bar pending-bar" id="studentPendingBar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="overview-row">
+                <div class="overview-label-wrap">
+                    <span class="overview-label">Critical</span>
+                    <span class="overview-value" id="studentCriticalText">0</span>
+                </div>
+                <div class="overview-bar-track">
+                    <div class="overview-bar critical-bar" id="studentCriticalBar" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="dashboard-grid">
+                <div class="card pastel-card">
+                    <h3>My Recent Complaints</h3>
+                    <div id="studentComplaintsList"></div>
+                </div>
+
+                <div class="card pastel-card">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <a href="#submit" class="btn primary">Submit Complaint</a>
+                        <a href="#audit" class="btn soft">Track Complaint Log</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+        <section id="admin-dashboard" class="view">
+            <div class="view-header">
+                <h1>Admin Dashboard</h1>
+                <p>Monitor complaints, SLA breaches, blockchain history, escalation status, and suspicious accounts.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card pastel-card">
+                    <span class="stat-value" id="statTotal">24</span>
+                    <span class="stat-label">Total Complaints</span>
+                </div>
+                <div class="stat-card pastel-card warning-card">
+                    <span class="stat-value" id="statCritical">5</span>
+                    <span class="stat-label">Critical (Escalated)</span>
+                </div>
+                <div class="stat-card pastel-card">
+                    <span class="stat-value" id="statResolved">18</span>
+                    <span class="stat-label">Resolved</span>
+                </div>
+                <div class="stat-card pastel-card">
+                    <span class="stat-value" id="statSla">94%</span>
+                    <span class="stat-label">SLA Compliance</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card pastel-card">
+                    <h3>Recent Complaints</h3>
+                    <div id="complaintsList" class="complaints-list"></div>
+                </div>
+
+                <div class="card pastel-card">
+                    <h3>SLA & Escalation Status</h3>
+                    <div id="slaList" class="sla-list"></div>
+                </div>
+
+                <div class="card pastel-card">
+                    <h3>Flagged Accounts</h3>
+                    <div id="flaggedAccountsList" class="flagged-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBMIT -->
+        <section id="submit" class="view">
+            <div class="view-header">
+                <h1>Submit a Complaint</h1>
+                <p>Complaints are analyzed using NLP, checked for duplicates, and logged into an immutable audit chain.</p>
+            </div>
+
+            <form id="complaintForm" class="complaint-form pastel-card">
+                <div class="form-row">
+                    <label>
+                        Category
+                        <select id="category" required>
+                            <option value="">Select category</option>
+                            <option value="safety">Safety & Security</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="academics">Academics</option>
+                            <option value="harassment">Harassment</option>
+                            <option value="facilities">Facilities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Location / Building
+                        <input type="text" id="location" placeholder="e.g., Library Block A">
+                    </label>
+                </div>
+
+                <label>
+                    Describe your grievance
+                    <textarea id="description" rows="5" placeholder="Provide detailed complaint description..." required></textarea>
+                    <span class="form-hint">Sentiment and severity will be automatically detected</span>
+                </label>
+
+                <div class="form-row">
+                    <label>
+                        Your ID (optional)
+                        <input type="text" id="userId" placeholder="Student/Staff ID">
+                    </label>
+
+                    <label>
+                        Contact
+                        <input type="email" id="contact" placeholder="email@campus.edu">
+                    </label>
+                </div>
+
+                <label class="checkbox-row">
+                    <input type="checkbox" id="hideIdentity">
+                    Hide my identity from regular reviewers
+                </label>
+
+                <label>
+                    Upload Evidence (Image / Video / PDF)
+                    <input type="file" id="evidence" accept="image/*,video/*,.pdf">
+                </label>
+
+                <div id="previewContainer" class="preview-container"></div>
+
+                <label class="checkbox-row">
+                    <input type="checkbox" id="isFollowUp">
+                    This is a follow-up to an existing complaint
+                </label>
+
+                <label id="followUpSelectWrap" class="hidden">
+                    Select Existing Complaint
+                    <select id="followUpComplaintId">
+                        <option value="">Choose complaint</option>
+                    </select>
+                </label>
+
+                <div id="complaintWarning" class="warning-box hidden"></div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn primary">
+                        <span>Submit Complaint</span>
+                    </button>
+                </div>
+            </form>
+
+            <div id="submitResult" class="submit-result hidden">
+                <div class="result-success">
+                    <span class="result-icon">✓</span>
+                    <h4>Complaint Logged Successfully</h4>
+                    <p>Transaction Hash: <code id="txHash">0x0000...</code></p>
+                    <p class="result-meta">Severity: <span id="detectedSeverity">—</span> | Sentiment: <span id="detectedSentiment">—</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUDIT -->
+        <section id="audit" class="view">
+            <div class="view-header">
+                <h1>Blockchain Audit Log</h1>
+                <p>Immutable complaint history to ensure transparency and accountability.</p>
+            </div>
+
+            <div class="audit-controls">
+                <input type="search" id="auditSearch" placeholder="Search by hash, category, or ID...">
+                <button class="btn soft" id="verifyChain">Verify Chain Integrity</button>
+            </div>
+
+            <div class="audit-chain" id="auditChain"></div>
+
+            <div id="chainStatus" class="chain-status">
+                <span class="status-dot"></span>
+                <span>Chain verified — no tampering detected</span>
+            </div>
+        </section>
+
+        <!-- HEATMAP -->
+        <section id="heatmap" class="view">
+            <div class="view-header">
+                <h1>Issue Heat Map</h1>
+                <p>Complaint density and severity visualization across campus zones.</p>
+            </div>
+
+            <div class="heatmap-container pastel-card">
+                <div class="heatmap-legend">
+                    <span>Low</span>
+                    <div class="legend-gradient"></div>
+                    <span>High</span>
+                </div>
+
+                <div class="heatmap-grid" id="heatmapGrid"></div>
+
+                <div class="heatmap-labels">
+                    <div class="labels-row">
+                        <span>Library</span>
+                        <span>Admin</span>
+                        <span>Hostel</span>
+                        <span>Cafeteria</span>
+                        <span>Sports</span>
+                        <span>Lab</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heatmap-breakdown pastel-card">
+                <h4>By Category</h4>
+                <div id="categoryBreakdown" class="breakdown-bars"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>CampusGuard — transparent, pastel, student-friendly grievance governance system</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='student.js') }}"></script>
+</body>
+</body>
+
+<script>
+async function loadComplaints() {
+    const res = await fetch("http://127.0.0.1:5000/complaints");
+    const data = await res.json();
+
+    console.log("Complaints:", data);
+
+    const container = document.getElementById("complaintsList");
+
+    if (!container) {
+        console.error("❌ complaintsList div not found");
+        return;
+    }
+
+    container.innerHTML = "";
+
+    data.reverse().forEach(c => {
+        container.innerHTML += `
+            <div style="padding:10px; border:1px solid #ccc; margin:10px;">
+                <b>${c.id}</b> - ${c.text}<br>
+                Severity: ${c.severity} | Status: ${c.status}
+            </div>
+        `;
+    });
+}
+
+// 🔁 Auto refresh every 2 sec
+setInterval(loadComplaints, 2000);
+
+// 🚀 First load
+loadComplaints();
+</script>
+</html>
